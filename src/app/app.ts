@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Login } from './components/login/login';
+import {MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    Login
+    MatToolbarModule,
+    MatIconModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
