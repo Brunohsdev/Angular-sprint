@@ -1,22 +1,44 @@
-<div class="container">
+<section class="container">
     <div class="imagem">
-        <img src="../../assets/ranger.png" alt="imagem de uma ranger vermelha">
+        <img src="assets/ranger.png" alt="imagem de uma ranger vermelha" class="imagem-ranger">
     </div>
     <div class="login-class">
         <div class="logo">
-            <img src="./public/ford-logo-flat.svg" alt="logo da empresa">
+            <img src="assets/ford-logo-flat.svg" alt="logo da Ford" class="logo-ford">
         </div>
-        <form class="form-login">
-            <h2>Boas Vindas</h2>
-            <input type="text" name="user" id="user" placeholder="Digite seu Usuário">
-
-            <input type="text" name="password" id="senha" placeholder="Digite sua senha">
+        <div class="container-password">
+                <h2>Bem Vindo!</h2>
+                <form #frmLogin="ngForm" class="form-login">
+                <p class="texto-login">Para acessar o sistema, por favor, informe seu usuário e senha.</p>
+                <mat-form-field class ="form-field">
+                    <!-- <mat-label>Digite seu usuário</mat-label> -->
+                    <input matInput class="input-usuario" type="text"  placeholder="Digite seu usuário" [(ngModel)]="usuario" name="usuario" />
+        
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                  <!-- <mat-label>Digite sua senha</mat-label> -->
+                  <input matInput class="input-password" placeholder="Digite sua senha" [type]="hide() ? 'password' : 'text'" [(ngModel)]="senha" name="senha" />
+                  <button
+                    matIconButton
+                    matSuffix
+                    (click)="clickEvent($event)"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide()"
+                  >
+                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+              
             <div class="remember-me">
             <label for="lembredemim">Logar automaticamente</label>
-            <input type="checkbox" name="lembredemim" id="automatic-login">
+            <p><mat-slide-toggle></mat-slide-toggle></p>
             </div>
 
-            <button class="btn-enviar-form" disabled>Enviar</button>
-        </form>
+            <button class="btn-enviar-form" type="submit" (click)="login()" disabled>Enviar</button>
+          </form>
+          <p class="erro"></p>
     </div>
+    <p class="texto-de-um-footer">© 2023 Ford Motor Company. Todos os direitos reservados.</p>
 </div>
+
+</section>

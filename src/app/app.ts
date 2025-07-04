@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { Login } from './components/login/login';
+import { Dashboard } from './components/dashboard/dashboard';
+
 
 
 @Component({
@@ -9,8 +12,10 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     RouterOutlet,
     MatToolbarModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    Login,
+    Dashboard
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
