@@ -12,12 +12,25 @@
                 <p class="texto-login">Para acessar o sistema, por favor, informe seu usuário e senha.</p>
                 <mat-form-field class ="form-field">
                     <!-- <mat-label>Digite seu usuário</mat-label> -->
-                    <input matInput class="input-usuario" type="text"  placeholder="Digite seu usuário" [(ngModel)]="usuario" name="usuario" />
-        
+                    <input
+                      matInput class="input-usuario"
+                      type="text"
+                      placeholder="Digite seu usuário"
+                      [(ngModel)]="usuario"
+                      name="usuario" required
+                    />
+
                 </mat-form-field>
                 <mat-form-field class="form-field">
                   <!-- <mat-label>Digite sua senha</mat-label> -->
-                  <input matInput class="input-password" placeholder="Digite sua senha" [type]="hide() ? 'password' : 'text'" [(ngModel)]="senha" name="senha" />
+                  <input
+                  matInput class="input-password"
+                  placeholder="Digite sua senha"
+                  [type]="hide() ? 'password' : 'text'"
+                   [(ngModel)]="senha"
+                   name="senha"
+                   required
+                   />
                   <button
                     matIconButton
                     matSuffix
@@ -28,13 +41,14 @@
                     <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
-              
+
             <div class="remember-me">
             <label for="lembredemim">Logar automaticamente</label>
             <p><mat-slide-toggle></mat-slide-toggle></p>
             </div>
 
-            <button class="btn-enviar-form" type="submit" (click)="login()" disabled>Enviar</button>
+            <button class="btn-enviar-form" type="submit" (click)="login()"  [disabled]="!frmLogin.valid"
+            >Enviar</button>
           </form>
           <p class="erro"></p>
     </div>

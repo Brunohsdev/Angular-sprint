@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { Login } from './components/login/login';
+import { Home } from './components/home/home';
 import { Dashboard } from './components/dashboard/dashboard';
 
 
@@ -14,6 +15,7 @@ import { Dashboard } from './components/dashboard/dashboard';
     MatToolbarModule,
     MatIconModule,
     Login,
+    Home,
     Dashboard
 ],
   templateUrl: './app.html',
