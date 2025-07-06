@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -7,6 +7,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { Dashboard } from '../dashboard/dashboard';
 import { Login } from '../login/login';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-home',
@@ -16,10 +18,13 @@ import { Login } from '../login/login';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    MatIconModule,
     RouterLink,
     Dashboard,
     Login
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

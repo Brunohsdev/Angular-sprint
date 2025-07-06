@@ -1,8 +1,10 @@
-<mat-sidenav-container class="sidenav-container">
+<!-- <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened class="sidenav">
     <div class="logo-container">
       <img src="assets/ford-logo.svg" alt="Logo da Ford" class="logo">
     </div>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+
     <mat-nav-list>
       <a mat-list-item routerLink="/home">Home</a>
       <a mat-list-item routerLink="/dashboard">Dashboard</a>
@@ -11,7 +13,40 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <!-- Conteúdo específico da página home -->
-    <h2>Bem-vindo à página Home</h2>
+
+    <div>
+      <span>Sistema de Dados Ford</span>
+      <span>Seja bem vindo(a)!</span>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+ -->
+<header color="primary">
+  <div class="home">
+    <button matButton [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item href="/home"><mat-icon fontIcon="home"></mat-icon>Home</a>
+      <a mat-menu-item href="/dashboard"><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</a>
+      <a mat-menu-item href="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
+    </mat-menu>
+  </div>
+  <div class="user">
+     <button matButton [matMenuTriggerFor]="user">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+     <mat-menu #user="matMenu">
+      <a mat-menu-item><mat-icon fontIcon="account_box"></mat-icon>Perfil</a>
+      <a mat-menu-item><mat-icon fontIcon="logout"></mat-icon>Logout</a>
+    </mat-menu>
+  </div>
+
+</header>
+<main>
+  <div class="welcome">
+    <h2>Sistema de dados Ford</h2>
+    <h3>Seja bem Vindo(a)!</h3>
+
+  </div>
+</main>
