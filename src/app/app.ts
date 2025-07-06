@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import {MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { Login } from './components/login/login';
-import { Home } from './components/home/home';
-import { Dashboard } from './components/dashboard/dashboard';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
+
 
 
 
@@ -14,9 +16,11 @@ import { Dashboard } from './components/dashboard/dashboard';
     RouterOutlet,
     MatToolbarModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
     Login,
-    Home,
-    Dashboard
+    RouterLink
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -24,3 +28,4 @@ import { Dashboard } from './components/dashboard/dashboard';
 export class App {
   protected title = 'projeto--desafio-angular';
 }
+

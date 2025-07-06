@@ -1,6 +1,17 @@
-<header>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="logo-container">
+      <img src="assets/ford-logo.svg" alt="Logo da Ford" class="logo">
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Home</a>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/login">Sair</a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-</header>
-<main>
-  
-</main>
+  <mat-sidenav-content>
+    <!-- Conteúdo específico da página home -->
+    <h2>Bem-vindo à página Home</h2>
+  </mat-sidenav-content>
+</mat-sidenav-container>

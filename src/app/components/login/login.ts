@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 /** @title Form field with prefix & suffix */
@@ -25,7 +26,7 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class Login {
-
+  constructor(private router: Router){}
   //variaveis
   usuario:string = '';
   senha:string = '';
@@ -35,7 +36,7 @@ export class Login {
   senha_correta = '123456';
 
   hide = signal(true);
-  button_enviar = document.querySelector('.button_enviar') as HTMLButtonElement;
+  
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
@@ -52,6 +53,7 @@ export class Login {
         console.log('Login bem-sucedido!');
         alert("deu certo!");
         // Redirecionar ou realizar outras ações após o login bem-sucedido
+        this.router.navigate(['/home']);
       }
       else {
         console.log('Nome de usuário ou senha incorretos.');

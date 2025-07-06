@@ -1,0 +1,19 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: var(--cor-cinza);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
