@@ -1,0 +1,10 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem ;
+  }
+  .mat-icon{
+    color: var(--cor-preto-grafite);
+    width: 48px;
+    height: 48px;
+  }

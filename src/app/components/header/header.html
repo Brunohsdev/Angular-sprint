@@ -1,0 +1,21 @@
+<header color="primary">
+    <div class="home">
+      <button matButton [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+      <mat-menu #menu="matMenu" class="menu">
+        <a mat-menu-item href="/home"><mat-icon fontIcon="home"></mat-icon>Home</a>
+        <a mat-menu-item href="/dashboard"><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</a>
+        <a mat-menu-item href="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
+      </mat-menu>
+    </div>
+    <div class="user">
+       <button matButton [matMenuTriggerFor]="user">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+       <mat-menu #user="matMenu">
+        <a mat-menu-item href="*"><mat-icon fontIcon="account_box"></mat-icon>Perfil</a>
+        <a mat-menu-item href="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
+      </mat-menu>
+    </div>
+  </header>

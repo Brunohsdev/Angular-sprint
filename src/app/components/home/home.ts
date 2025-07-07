@@ -1,28 +1,18 @@
 import { ChangeDetectionStrategy,Component } from '@angular/core';
+import { Header } from "../header/header";
 import { RouterLink } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { Dashboard } from '../dashboard/dashboard';
-import { Login } from '../login/login';
-import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 
 @Component({
   selector: 'app-home',
   imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
     RouterLink,
-    Dashboard,
-    Login
-  ],
+    Header,
+    MatButtonModule,
+    MatCardModule
+],
   changeDetection: ChangeDetectionStrategy.OnPush,
 
   templateUrl: './home.html',

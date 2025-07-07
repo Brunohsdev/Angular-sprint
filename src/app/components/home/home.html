@@ -1,52 +1,14 @@
-<!-- <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="side" opened class="sidenav">
-    <div class="logo-container">
-      <img src="assets/ford-logo.svg" alt="Logo da Ford" class="logo">
-    </div>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-
-    <mat-nav-list>
-      <a mat-list-item routerLink="/home">Home</a>
-      <a mat-list-item routerLink="/dashboard">Dashboard</a>
-      <a mat-list-item routerLink="/login">Sair</a>
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-
-    <div>
-      <span>Sistema de Dados Ford</span>
-      <span>Seja bem vindo(a)!</span>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
- -->
-<header color="primary">
-  <div class="home">
-    <button matButton [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
-  </button>
-    <mat-menu #menu="matMenu">
-      <a mat-menu-item href="/home"><mat-icon fontIcon="home"></mat-icon>Home</a>
-      <a mat-menu-item href="/dashboard"><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</a>
-      <a mat-menu-item href="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
-    </mat-menu>
-  </div>
-  <div class="user">
-     <button matButton [matMenuTriggerFor]="user">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-     <mat-menu #user="matMenu">
-      <a mat-menu-item><mat-icon fontIcon="account_box"></mat-icon>Perfil</a>
-      <a mat-menu-item><mat-icon fontIcon="logout"></mat-icon>Logout</a>
-    </mat-menu>
-  </div>
-
-</header>
+<app-header></app-header>
 <main>
-  <div class="welcome">
-    <h2>Sistema de dados Ford</h2>
-    <h3>Seja bem Vindo(a)!</h3>
-
-  </div>
+        <mat-card class="card-home">
+        <mat-card-header class="card-header-home">
+        <mat-card-title class="card-header-title text" >Bem vindo a central de dados Ford</mat-card-title>
+        <mat-card-subtitle class="card-header-subtitle text">Bem Vindo(a)!</mat-card-subtitle>
+        </mat-card-header>
+            <mat-card-content class="card-content-home">
+              <p class="text">
+              A Ford é uma das maiores e mais tradicionais montadoras do mundo, fundada em 1903 por Henry Ford nos Estados Unidos. Reconhecida por revolucionar a indústria automobilística com a introdução da linha de montagem em série, a empresa tornou o automóvel acessível para milhões de pessoas. No Brasil, a Ford atua há mais de um século, contribuindo significativamente para o desenvolvimento do setor automotivo nacional. Seu portfólio inclui veículos que aliam tecnologia, desempenho e segurança, como a Ranger, o Territory e o Mustang. A marca também investe em inovação, com foco em mobilidade inteligente, sustentabilidade e conectividade veicular, mantendo-se relevante no cenário global e adaptando-se às novas demandas do mercado.
+              </p>
+            </mat-card-content>
+        </mat-card>
 </main>
