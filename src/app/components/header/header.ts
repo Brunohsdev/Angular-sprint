@@ -20,8 +20,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     MatIconModule,
     RouterLink,
-    Dashboard,
-    Login
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 
