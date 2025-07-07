@@ -8,48 +8,63 @@
         </div>
         <div class="container-password">
                 <h2>Bem Vindo!</h2>
-                <form #frmLogin="ngForm" class="form-login">
-                <p class="texto-login">Para acessar o sistema, por favor, informe seu usuário e senha.</p>
-                <mat-form-field class ="form-field">
-                    <!-- <mat-label>Digite seu usuário</mat-label> -->
-                    <input
-                      matInput class="input-usuario"
-                      type="text"
-                      placeholder="Digite seu usuário"
-                      [(ngModel)]="usuario"
-                      name="usuario" required
-                    />
+              <form #frmLogin="ngForm" class="form-login" (ngSubmit)="login()">
+  <p class="texto-login">Para acessar o sistema, por favor, informe seu usuário e senha.</p>
 
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                  <!-- <mat-label>Digite sua senha</mat-label> -->
-                  <input
-                  matInput class="input-password"
-                  placeholder="Digite sua senha"
-                  [type]="hide() ? 'password' : 'text'"
-                  [(ngModel)]="senha"
-                  name="senha"
-                  required
-                  />
-                  <button
-                    matIconButton
-                    matSuffix
-                    (click)="clickEvent($event)"
-                    [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide()"
-                  >
-                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </button>
-                </mat-form-field>
+  <mat-form-field class="form-field">
+    
+    <input
+      class="input input-usuario"
+      matInput
+      type="text"
+      placeholder="Digite seu usuário"
+      [(ngModel)]="usuario"
+      name="usuario"
+      required
+    />
+  </mat-form-field>
 
-            <div class="remember-me">
-            <label for="lembredemim">Logar automaticamente</label>
-            <p><mat-slide-toggle></mat-slide-toggle></p>
-            </div>
+  <mat-form-field class="form-field">
 
-            <button class="btn-enviar-form" type="submit" (click)="login()"  [disabled]="!frmLogin.valid"
-            >Enviar</button>
-          </form>
+    <input
+    class="input input-password"
+      matInput
+      [type]="hide() ? 'password' : 'text'"
+      placeholder="Digite sua senha"
+      [(ngModel)]="senha"
+      name="senha"
+      required
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Mostrar ou ocultar senha'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="remember-me">
+    <label for="lembredemim">Logar automaticamente</label>
+    <p><mat-slide-toggle></mat-slide-toggle></p>
+  </div>
+
+  <div *ngIf="loginError()" class="erro">
+    *Falha no login: Nome de usuário ou senha incorretos.
+  </div>
+
+  <button
+    class="btn-enviar-form"
+    type="submit"
+    [disabled]="!frmLogin.valid"
+  >
+    Enviar
+  </button>
+</form>
+
           <p class="erro"></p>
     </div>
     <p class="texto-de-um-footer">© 2023 Ford Motor Company. Todos os direitos reservados.</p>
