@@ -3,7 +3,8 @@
       <button matButton [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
-      <mat-menu #menu="matMenu" class="menu">
+    <mat-menu #menu="matMenu" panelClass="custom-menu-panel">
+
         <a mat-menu-item routerLink="/home"><mat-icon fontIcon="home"></mat-icon>Home</a>
         <a mat-menu-item routerLink="/dashboard"><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</a>
         <a mat-menu-item routerLink="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
