@@ -8,7 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink,
+   
     Header,
     MatButtonModule,
     MatCardModule

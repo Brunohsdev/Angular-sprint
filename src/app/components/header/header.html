@@ -1,4 +1,4 @@
-<header color="primary">
+<!-- <header color="primary">
     <div class="home">
       <button matButton [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
@@ -19,4 +19,71 @@
         <a mat-menu-item href="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
       </mat-menu>
     </div>
+  </header> -->
+
+  <!-- <header color="primary">
+    <div class="home">
+      <button matButton [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" panelClass="custom-menu-panel">
+
+        <a mat-menu-item routerLink="/home"><mat-icon fontIcon="home"></mat-icon>Home</a>
+        <a mat-menu-item routerLink="/dashboard"><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</a>
+        <a mat-menu-item routerLink="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
+      </mat-menu>
+    </div>
   </header>
+  -->
+  <nav class="navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div
+          class="offcanvas offcanvas-start"
+          tabindex="1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header logo">
+            <img src="assets/ford-logo.svg" alt="" class="logo-ford">
+          
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-start flex-grow-1">
+              <li class="nav-item border-bottom">
+                <a class="nav-link active" aria-current="page"  routerLink="/home">Home</a>
+              </li>
+              <li class="nav-item border-bottom">
+                <a class="nav-link"  routerLink="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item border-bottom">
+                <a class="nav-link"  routerLink="/login">Logout</a>
+              </li>
+              <li class="nav-item dropdown">
+             
+              </li>
+            </ul>
+         
+          </div>
+        </div>
+        <div class="user">
+        <button matButton [matMenuTriggerFor]="user">
+         <mat-icon>account_circle</mat-icon>
+       </button>
+        <mat-menu #user="matMenu">
+         <a mat-menu-item href="*"><mat-icon fontIcon="account_box"></mat-icon>Perfil</a>
+         <a mat-menu-item href="/login"><mat-icon fontIcon="logout"></mat-icon>Logout</a>
+       </mat-menu>
+     </div>
+      </div>
+    </nav>

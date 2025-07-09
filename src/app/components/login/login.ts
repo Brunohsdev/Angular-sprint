@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthService } from '../../auth/auth';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ import { AuthService } from '../../auth/auth';
     MatIconModule,
     MatSlideToggleModule,
     FormsModule,
+    CommonModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -35,7 +37,7 @@ export class Login {
     event.stopPropagation();
   }
 
-  login() {
+  login(): void {
     if (this.auth.login(this.usuario, this.senha)) {
       this.loginError.set(false);
       this.router.navigate(['/home']);

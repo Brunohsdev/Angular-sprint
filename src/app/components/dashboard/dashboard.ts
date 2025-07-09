@@ -7,7 +7,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
   selector: 'app-dashboard',
   imports: [
     Header,
-    RouterLink,
+    
     MatGridListModule
   ],
   templateUrl: './dashboard.html',
