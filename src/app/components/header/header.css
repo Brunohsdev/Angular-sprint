@@ -39,6 +39,7 @@ header{
   /* Adicional: efeito de zoom no li todo, se quiser */
   .navbar-nav li {
     transition: transform 0.3s ease;
+    cursor: pointer;
   }
   
   .navbar-nav li:hover {
@@ -70,6 +71,7 @@ header{
 .nav-link{
     font-weight: 600;
     padding: 1rem;
+    cursor: pointer;
 }
 .nav-item{
     width: 100%;

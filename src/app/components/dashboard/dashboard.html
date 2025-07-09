@@ -1,21 +1,110 @@
 <body>
-  
   <app-header></app-header>
-  <main class="principal">
-    <div class="welcome">
-      <h1>Dasboard FORD</h1>
+  <!-- <main class="principal container align-items-center">
+    <section class="data-1 flex-column justify-content-center align-items-center">
+    <div>
     </div>
+    <mat-form-field>
+        <h4>Veículo</h4>
+        <mat-label>Cars</mat-label>
+        <select matNativeControl required>
+          <option value="renger">Ranger</option>
+          <option value="mustang">Mustang</option>
+          <option value="territory">Territory</option>
+          <option value="bronco_sport">Bronco Sport</option>
+        </select>
+      </mat-form-field>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        </div>
+      </div>
+   
+  </section>
+    <img src="/assets/mustang.png" alt="">
+  </main> -->
+  <main class="principal container">
+   
+    <div class="welcome mt-4 mb-4">
+      <h1 class="text-primary text-center">Dashboard FORD</h1>
+    </div>
+
+    
     <section class="class_car">
-      <mat-grid-list cols="5" rowHeight="0"  class="grid-list">
-        <mat-grid-tile class="dados">veiculos</mat-grid-tile>
-        <mat-grid-tile class="dados">total de vendas</mat-grid-tile>
-        <mat-grid-tile class="dados"> conectados</mat-grid-tile>
-        <mat-grid-tile class="dados">Update Software</mat-grid-tile>
-      </mat-grid-list>
-      
-      <img src="/assets/mustang.png" alt="">
-      
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-2 mb-2">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Veículo</mat-label>
+            <mat-select>
+              <mat-option value="ranger">Ranger</mat-option>
+              <mat-option value="mustang">Mustang</mat-option>
+              <mat-option value="territory">Territory</mat-option>
+              <mat-option value="bronco">Bronco Sport</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-10">
+          <div class="row text-center">
+            <div class="col-md-4">
+              <div class="dados">Total de Vendas<br><small>1500 Unid.</small></div>
+            </div>
+            <div class="col-md-4">
+              <div class="dados">Conectados<br><small>500 Unid.</small></div>
+            </div>
+            <div class="col-md-4">
+              <div class="dados">Update Software<br><small>750 Unid.</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="text-center">
+        <img src="/assets/mustang.png" alt="Mustang" class="img-fluid car-img" />
+      </div>
+    </section>
+
+ 
+    <section class="table-responsive mt-4">
+      <table class="table table-bordered table-striped text-center">
+        <thead class="table-primary">
+          <tr>
+            <th>Código - Vin</th>
+            <th>Odômetro</th>
+            <th>Nível de Combustível</th>
+            <th>Status</th>
+            <th>Lat.</th>
+            <th>Long.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PYBNC1675N5123415</td>
+            <td>50000 Km</td>
+            <td>96%</td>
+            <td>On</td>
+            <td>-12.2222</td>
+            <td>-42.0000</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </main>
-  
-</body>
+</body> 
