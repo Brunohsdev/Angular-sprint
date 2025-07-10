@@ -1,64 +1,24 @@
-/* Estilo geral do conteúdo principal */
+/* Garante espaçamento abaixo do header fixo */
 .principal {
-  padding: 2rem 1rem;
-  background-color: #f8f9fa;
+  padding-top: 70px;
 }
-
-/* Título */
-.welcome h1 {
-  font-weight: 700;
-  font-size: 2.2rem;
-}
-
-/* Cards de informações */
-.dados {
-  background-color: #3f51b5;
-  color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-.dados:hover {
-  transform: scale(1.05);
-}
-
-/* Imagem do carro */
+/* Imagem central com responsividade */
 .car-img {
-  max-width: 100%;
+  max-width: 500px;
+  width: 100%;
   height: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
-/* Tabela */
-table {
-  font-size: 1rem;
+/* Estilo personalizado para a faixa azul inferior da tabela */
+.table-footer-blue tbody tr {
+  background-color: #0d6efd;
+  color: white;
 }
-.table thead th {
-  vertical-align: middle;
-}
-.table td, .table th {
-  vertical-align: middle;
-  padding: 0.75rem;
+.table-footer-blue tbody td {
+  font-weight: bold;
 }
 
-/* Select de veículo */
-.form-label {
-  font-weight: 600;
-}
-
-/* Responsividade extra */
-@media (max-width: 768px) {
-  .dados {
-    font-size: 0.95rem;
-    padding: 1rem;
-  }
-  .welcome h1 {
-    font-size: 1.6rem;
-  }
-  .table {
-    font-size: 0.9rem;
-  }
-}
+        .data-1{
+          border: var(--bs-border-width) solid var(--bs-border-color);
+          
+        }

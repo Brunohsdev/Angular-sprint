@@ -1,66 +1,82 @@
-<!-- DASHBOARD FORD HTML COM BOOTSTRAP -->
+<body>
+  <app-header></app-header>
+  <main class="principal py-1">
+    <div class="container text-center">
+      <h1 class="text-primary fw-bold mb-4">Dashboard FORD</h1>
 
-<app-header></app-header>
+      <div class="row justify-content-center align-items-start mb-4">
+        <!-- Select de veículo -->
+        <div class="data-1 col-12 col-md-3 mb-3 text-start">
+          <label for="select-veiculo" class="form-label fw-bold">Veículo</label>
+          <select id="select-veiculo" class="form-select">
+            <option value="mustang">Mustang</option>
+            <option value="ranger">Ranger</option>
+            <option value="territory">Territory</option>
+            <option value="bronco">Bronco Sport</option>
+          </select>
+        </div>
 
-<main class="principal container">
-  <div class="welcome mt-4 mb-4">
-    <h1 class="text-primary text-center">Dashboard FORD</h1>
-  </div>
-
-  <section class="class_car">
-    <div class="row justify-content-center mb-4">
-      <div class="col-12 col-md-3 mb-3">
-        <label for="select-veiculo" class="form-label fw-bold">Veículo</label>
-        <select id="select-veiculo" class="form-select">
-          <option value="ranger">Ranger</option>
-          <option value="mustang">Mustang</option>
-          <option value="territory">Territory</option>
-          <option value="bronco">Bronco Sport</option>
-        </select>
-      </div>
-
-      <div class="col-12 col-md-9">
-        <div class="row text-center">
-          <div class="col-12 col-md-4 mb-3">
-            <div class="dados">Total de Vendas<br><small>1500 Unid.</small></div>
-          </div>
-          <div class="col-12 col-md-4 mb-3">
-            <div class="dados">Conectados<br><small>500 Unid.</small></div>
-          </div>
-          <div class="col-12 col-md-4 mb-3">
-            <div class="dados">Update Software<br><small>750 Unid.</small></div>
+        <!-- Cards -->
+        <div class="col-12 col-md-9">
+          <div class="row text-center">
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Total de Vendas</h6>
+                  <p class="text-primary fs-5 fw-bold">4560 Unid.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Conectados</h6>
+                  <p class="text-primary fs-5 fw-bold">500 Unid.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Update Software</h6>
+                  <p class="text-primary fs-5 fw-bold">3050 Unid.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="text-center">
-      <img src="/assets/mustang.png" alt="Mustang" class="img-fluid car-img" />
-    </div>
-  </section>
+      <!-- Imagem do carro -->
+      <div class="text-center my-4">
+        <img src="/assets/territory.png" alt="Imagem do veículo" class="img-fluid car-img" />
+      </div>
 
-  <section class="table-responsive mt-4">
-    <table class="table table-bordered table-striped text-center">
-      <thead class="table-primary">
-        <tr>
-          <th>Código - Vin</th>
-          <th>Odômetro</th>
-          <th>Nível de Combustível</th>
-          <th>Status</th>
-          <th>Lat.</th>
-          <th>Long.</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>PYBNC1675N5123415</td>
-          <td>50000 Km</td>
-          <td>96%</td>
-          <td>On</td>
-          <td>-12.2222</td>
-          <td>-42.0000</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-</main>
+      <!-- Tabela -->
+      <div class="table-responsive">
+        <table class="table table-bordered text-center table-striped table-footer-blue">
+          <thead class="table-primary">
+            <tr>
+              <th>Código - Vin</th>
+              <th>Odômetro</th>
+              <th>Nível de Combustível</th>
+              <th>Status</th>
+              <th>Lat.</th>
+              <th>Long.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2FHAASUY34EHDU54875</td>
+              <td>10000 Km</td>
+              <td>25 %</td>
+              <td>Off</td>
+              <td>-12.2222</td>
+              <td>-35.2214</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
