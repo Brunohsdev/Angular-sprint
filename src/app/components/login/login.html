@@ -1,20 +1,20 @@
-<section class="container">
-    <div class="imagem">
+<section class="container container-fluid vh-100 d-flex flex-column flex-md-row">
+    <div class="imagem col-md-6 d-none d-md-flex align-items-center justify-content-center bg-light d-none d-lg-flex">
         <img src="assets/ranger.png" alt="imagem de uma ranger vermelha" class="imagem-ranger">
     </div>
-    <div class="login-class">
-        <div class="logo">
-            <img src="assets/ford-logo.svg" alt="logo da Ford" class="logo-ford">
+    <div class="login-class col-md-6 d-flex flex-column justify-content-center align-items-center p-4">
+        <div class="logo text-center">
+            <img src="assets/ford-logo.svg" alt="logo da Ford" class="logo-ford ">
         </div>
         <div class="container-password">
-                <h2>Bem Vindo!</h2>
-              <form #frmLogin="ngForm" class="form-login" (ngSubmit)="login()">
+                <h2 class=" fw-bold">Bem Vindo!</h2>
+              <form #frmLogin="ngForm" class="form-login w-100" (ngSubmit)="login()"  style="max-width: 400px;">
   <p class="texto-login">Para acessar o sistema, por favor, informe seu usuário e senha.</p>
 
-  <mat-form-field class="form-field">
-    
+  <mat-form-field appearance="fill" class="form-field w-100 mb-3">
+
     <input
-      class="input input-usuario"
+      class="input input-usuario "
       matInput
       type="text"
       placeholder="Digite seu usuário"
@@ -24,7 +24,7 @@
     />
   </mat-form-field>
 
-  <mat-form-field class="form-field">
+  <mat-form-field  appearance="fill" class="w-100 mb-3" class="form-field">
 
     <input
     class="input input-password"
@@ -47,26 +47,25 @@
     </button>
   </mat-form-field>
 
-  <div class="remember-me">
-    <label for="lembredemim">Logar automaticamente</label>
+  <div class="remember-me d-flex justify-content-between align-items-center mb-3">
+    <label class="form-label text-muted mb-0">Logar automaticamente</label>
     <p><mat-slide-toggle></mat-slide-toggle></p>
   </div>
 
-  <div *ngIf="loginError()" class="erro">
+  <div *ngIf="loginError()" class="erro text-danger mb-3 fw-bold text-center">
     *Falha no login: Nome de usuário ou senha incorretos.
   </div>
 
   <button
-    class="btn-enviar-form"
+    class="btn-enviar-form btn btn-primary w-100"
     type="submit"
     [disabled]="!frmLogin.valid"
   >
     Enviar
   </button>
 </form>
-
           <p class="erro"></p>
     </div>
-    <p class="texto-de-um-footer">© 2023 Ford Motor Company. Todos os direitos reservados.</p>
+    <p class="texto-de-um-footer text-muted mt-4 text-center small">© 2025 Ford Motor Company. Todos os direitos reservados.</p>
 </div>
 </section>
