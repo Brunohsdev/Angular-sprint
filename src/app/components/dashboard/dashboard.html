@@ -6,55 +6,61 @@
 
       <div class="row justify-content-center align-items-start mb-4">
         <!-- Select de veículo -->
-        <div class="data-1 col-12 col-md-3 mb-3 text-start">
-          <label for="select-veiculo" class="form-label fw-bold">Veículo</label>
-          <select id="select-veiculo" class="form-select">
-            <option value="mustang">Mustang</option>
-            <option value="ranger">Ranger</option>
-            <option value="territory">Territory</option>
-            <option value="bronco">Bronco Sport</option>
-          </select>
-        </div>
-
-        <!-- Cards -->
         <div class="col-12 col-md-9">
           <div class="row text-center">
-            <div class="col-12 col-md-4 mb-3">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h6 class="card-title fw-bold">Total de Vendas</h6>
-                  <p class="text-primary fs-5 fw-bold">4560 Unid.</p>
-                </div>
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h6 class="card-title fw-bold">Veiculos</h6>
+                <form [formGroup]="selectCarForms">
+                  <select formControlName="carId">
+                      <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+                          {{ vehicle.vehicle }}
+                      </option>
+                  </select>
+              </form>
               </div>
             </div>
-            <div class="col-12 col-md-4 mb-3">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h6 class="card-title fw-bold">Conectados</h6>
-                  <p class="text-primary fs-5 fw-bold">500 Unid.</p>
-                </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h6 class="card-title fw-bold">Total de Vendas</h6>
+                <p class="text-primary fs-5 fw-bold" *ngIf="selectVehicle">{{selectVehicle.volumetotal}}</p>
+                <p> Unid.</p>
               </div>
             </div>
-            <div class="col-12 col-md-4 mb-3">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h6 class="card-title fw-bold">Update Software</h6>
-                  <p class="text-primary fs-5 fw-bold">3050 Unid.</p>
-                </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h6 class="card-title fw-bold">Conectados</h6>
+                <p class="text-primary fs-5 fw-bold" *ngIf="selectVehicle">{{selectVehicle.connected}} </p>
+                <p> Unid.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h6 class="card-title fw-bold">Update Software</h6>
+                <p class="text-primary fs-5 fw-bold" *ngIf="selectVehicle">{{selectVehicle.softwareUpdates}}</p>
+                <p> Unid.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Imagem do carro -->
-      <div class="text-center my-4">
-        <img src="/assets/territory.png" alt="Imagem do veículo" class="img-fluid car-img" />
-      </div>
-
-      <!-- Tabela -->
-      <div class="table-responsive">
-        <table class="table table-bordered text-center table-striped table-footer-blue">
+    </div>
+    
+    <!-- Imagem do carro -->
+    <div class="text-center my-4">
+      <img class="image-fluid" *ngIf="selectVehicle" [src]="selectVehicle.img" />
+    </div>
+    
+    <!-- Tabela -->
+    <div class="table-responsive">
+      <table class="table table-bordered text-center table-striped table-footer-blue">
           <thead class="table-primary">
             <tr>
               <th>Código - Vin</th>
