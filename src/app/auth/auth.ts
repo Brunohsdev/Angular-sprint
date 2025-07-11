@@ -1,22 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { Usuario } from '../models/usuario.model';
+import { UsuarioService } from '../services/UsuarioService';
+import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly VALID_USERNAME = 'admin';
-  private readonly VALID_PASSWORD = '123456';
+  isAuthenticated = signal(false);
+  userData = signal<Usuario | null>(null);
 
-  login(username: string, password: string): boolean {
-    return username === this.VALID_USERNAME && password === this.VALID_PASSWORD;
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {}
+
+  login(nome: string, senha: string) {
+    return this.usuarioService.login(nome, senha);
   }
 
-  logout(): void {
-    // Aqui você poderia limpar o token ou informações de sessão futuramente
-  }
-
-  isLoggedIn(): boolean {
-    // Para usar depois com guarda de rotas ou sessão
-    return false;
+  logout() {
+    this.isAuthenticated.set(false);
+    this.userData.set(null);
+    this.router.navigate(['/login']);
   }
 }

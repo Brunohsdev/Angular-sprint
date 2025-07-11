@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthService } from '../../auth/auth';
 import { CommonModule } from '@angular/common';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,9 @@ export class Login {
   hide = signal(true);
   loginError = signal(false);
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService, 
+    private router: Router, ) {}
 
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
@@ -38,11 +41,17 @@ export class Login {
   }
 
   login(): void {
-    if (this.auth.login(this.usuario, this.senha)) {
-      this.loginError.set(false);
-      this.router.navigate(['/home']);
-    } else {
-      this.loginError.set(true);
-    }
+    this.auth.login(this.usuario, this.senha).subscribe({
+      next: (res: Usuario) => {
+        this.auth.isAuthenticated.set(true);
+        this.auth.userData.set(res);
+        this.loginError.set(false);
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.error(err);
+        this.loginError.set(true);
+      }
+    });
   }
 }
