@@ -1,82 +1,71 @@
 <body>
   <app-header></app-header>
   <main class="principal py-1">
-    <div class="container text-center">
-      <h1 class="text-primary fw-bold mb-4">Dashboard FORD</h1>
+    <div class="container">
+      <h1 class="text-primary fw-bold mb-4 text-center">Dashboard FORD</h1>
 
-      <div class="data-1 row justify-content-center align-items-start mb-4 w-100">
+      <div class="row justify-content-center mb-4">
         <!-- Select de veículo -->
-        <div class="col-12 col-md-9">
-          <div class="data-2 w-100 text-center row">
-          <div class="col-12 col-md-3 mb-3">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title fw-bold">Veiculos</h6>
-                <form [formGroup]="selectCarForms">
-                  <select formControlName="carId">
-                      <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
-                          {{ vehicle.vehicle }}
-                      </option>
-                  </select>
+        <div class="col-12 col-md-3 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Veículo</h6>
+              <form [formGroup]="selectCarForms">
+                <select formControlName="carId" class="form-select">
+                  <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+                    {{ vehicle.vehicle }}
+                  </option>
+                </select>
               </form>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 mb-3">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title fw-bold">Total de Vendas</h6>
-                <p class="text-primary fs-5 fw-bold" *ngIf="selectVehicle">{{selectVehicle.volumetotal}}</p>
-                <p> Unid.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 mb-3">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title fw-bold">Conectados</h6>
-                <p class="text-primary fs-5 fw-bold" *ngIf="selectVehicle">{{selectVehicle.connected}} </p>
-                <p> Unid.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 mb-3">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h6 class="card-title fw-bold">Update Software</h6>
-                <p class="text-primary fs-5 fw-bold" *ngIf="selectVehicle">{{selectVehicle.softwareUpdates}}</p>
-                <p> Unid.</p>
-              </div>
             </div>
           </div>
         </div>
-      </div> 
-    </div>
-    
-    <!-- Imagem do carro -->
-    <div class="text-center my-4">
-      <img class="image-fluid" *ngIf="selectVehicle" [src]="selectVehicle.img" />
-    </div>
-    
-    <!-- Tabela -->
-    <div class="row justify-content-center mb-4">
-      <div class="col-12 col-md-6">
-        <form [formGroup]="selectCarForms">
-          <label class="form-label fw-bold" for="vin">Pesquisar por VIN:</label>
-          <input
-            class="form-control"
-            type="text"
-            id="vin"
-            formControlName="vin"
-            placeholder="Digite o código VIN (ex: 2FRHDUYS2Y63NHD22454)"
-          />
-        </form>
+
+        <!-- Total de Vendas -->
+        <div class="col-12 col-md-3 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Total de Vendas</h6>
+              <p class="text-primary fs-5 fw-bold m-0" *ngIf="selectVehicle">{{ selectVehicle.volumetotal }}</p>
+              <p class="m-0">Unid.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conectados -->
+        <div class="col-12 col-md-3 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Conectados</h6>
+              <p class="text-primary fs-5 fw-bold m-0" *ngIf="selectVehicle">{{ selectVehicle.connected }}</p>
+              <p class="m-0">Unid.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Software -->
+        <div class="col-12 col-md-3 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Update Software</h6>
+              <p class="text-primary fs-5 fw-bold m-0" *ngIf="selectVehicle">{{ selectVehicle.softwareUpdates }}</p>
+              <p class="m-0">Unid.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-bordered text-center table-striped table-footer-blue">
+
+      <!-- Imagem do carro -->
+      <div class="text-center my-4">
+        <img class="car-img" *ngIf="selectVehicle" [src]="selectVehicle.img" alt="Imagem do carro" />
+      </div>
+
+      <!-- Tabela -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
           <thead class="table-primary">
             <tr>
+              <th>Código - Vin</th>
               <th>Odômetro</th>
               <th>Nível de Combustível</th>
               <th>Status</th>
@@ -86,11 +75,21 @@
           </thead>
           <tbody>
             <tr>
-              <td>2FHAASUY34EHDU54875</td>
-              <td>10000 Km</td>
-              <td>25 %</td>
-              <td>Off</td>
-              <td>-12.2222</td>
+              <td>
+                <form [formGroup]="selectCarForms">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="vin"
+                    formControlName="vin"
+                    placeholder="Digite o código VIN"
+                  />
+                </form>
+              </td>
+              <td>50000 Km</td>
+              <td>90 %</td>
+              <td>on</td>
+              <td>-12.2322</td>
               <td>-35.2214</td>
             </tr>
           </tbody>
