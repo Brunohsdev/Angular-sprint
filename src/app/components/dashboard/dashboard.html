@@ -60,41 +60,53 @@
         <img class="car-img" *ngIf="selectVehicle" [src]="selectVehicle.img" alt="Imagem do carro" />
       </div>
 
-      <!-- Tabela -->
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped align-middle">
-          <thead class="table-primary">
-            <tr>
-              <th>Código - Vin</th>
-              <th>Odômetro</th>
-              <th>Nível de Combustível</th>
-              <th>Status</th>
-              <th>Lat.</th>
-              <th>Long.</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <form [formGroup]="selectCarForms">
-                  <input
-                    class="form-control"
-                    type="text"
-                    id="vin"
-                    formControlName="vin"
-                    placeholder="Digite o código VIN"
-                  />
-                </form>
-              </td>
-              <td>50000 Km</td>
-              <td>90 %</td>
-              <td>on</td>
-              <td>-12.2322</td>
-              <td>-35.2214</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      
+<!-- Tabela -->
+<div class="table-responsive">
+  <table class="table table-bordered table-striped align-middle">
+    <thead class="table-primary">
+      <tr>
+        <th>Código - Vin</th>
+        <th>Odômetro</th>
+        <th>Nível de Combustível</th>
+        <th>Status</th>
+        <th>Lat.</th>
+        <th>Long.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- Input VIN -->
+        <td>
+          <form [formGroup]="selectCarForms">
+            <input
+              class="form-control"
+              type="text"
+              id="vin"
+              formControlName="vin"
+              placeholder="Digite o código VIN"
+              (keydown.enter)="buscarVin()"
+            />
+          </form>
+        </td>
+
+        <!-- Dados se houver -->
+        <td *ngIf="vehicleData; else vazio">{{ vehicleData.odometro }} Km</td>
+        <td *ngIf="vehicleData; else vazio">{{ vehicleData.nivelCombustivel }} %</td>
+        <td *ngIf="vehicleData; else vazio">{{ vehicleData.status | titlecase }}</td>
+        <td *ngIf="vehicleData; else vazio">{{ vehicleData.lat }}</td>
+        <td *ngIf="vehicleData; else vazio">{{ vehicleData.long }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Template de fallback para dados ausentes -->
+<ng-template #vazio>
+  <td colspan="5" class="text-center">Digite um VIN válido para exibir os dados</td>
+</ng-template>
+
+
     </div>
   </main>
 </body>

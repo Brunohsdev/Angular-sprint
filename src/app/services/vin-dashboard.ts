@@ -14,6 +14,6 @@ export class VinDashboard {
   constructor(private Http:HttpClient) { }
 
   getVehiclesbyDataVin(vin:string): Observable<VehicleData> {
-    return this.Http.post<VehicleData>(`${this.baseUrl}/vehicles`, {vin});
+    return this.Http.post<VehicleData>(`${this.baseUrl}/vehicleData`, {vin});
   }
 }

@@ -15,7 +15,7 @@ import { VinDashboard } from '../../services/vin-dashboard';
   imports: [
     Header,
     FormsModule,
-    MatGridListModule, 
+    MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
@@ -29,7 +29,7 @@ export class Dashboard implements OnInit {
   vehicles: Veiculo[] = [];
   selectVehicle!: Veiculo;
   vehicleData!: VehicleData;
-  
+
   selectCarForms = new FormGroup({
     carId: new FormControl(''),
     vin: new FormControl('')
@@ -39,7 +39,7 @@ export class Dashboard implements OnInit {
     private dashboardservice:DashboardService,
     private vindashboard:VinDashboard
   ){}
-    
+
   ngOnInit(): void {
     //o select do carro por nome
     this.dashboardservice.getVehicles().subscribe((res)=>{
@@ -50,6 +50,8 @@ export class Dashboard implements OnInit {
       this.selectVehicle = this.vehicles[Number(id) -1]
       console.log(this.selectVehicle);
   })
+
+
 
   //o select do carro por vin
   this.selectCarForms.controls.vin.valueChanges.subscribe((vin) => {
@@ -68,4 +70,21 @@ export class Dashboard implements OnInit {
   })
 
 }
+buscarVin(): void {
+  const vin = this.selectCarForms.controls.vin.value;
+
+  if (vin) {
+    this.vindashboard.getVehiclesbyDataVin(vin).subscribe({
+      next: (data) => {
+        this.vehicleData = data;
+        console.log("Dados VIN recebidos:", data);
+      },
+      error: (err) => {
+        console.error("Erro ao buscar VIN:", err);
+        this.vehicleData = undefined!;
+      }
+    });
+  }
+}
+
 }
