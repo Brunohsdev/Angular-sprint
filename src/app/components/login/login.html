@@ -1,71 +1,79 @@
-<section class="container container-fluid vh-100 d-flex flex-column flex-md-row">
-    <div class="imagem col-md-6 d-none d-md-flex align-items-center justify-content-center bg-light d-none d-lg-flex">
-        <img src="assets/ranger.png" alt="imagem de uma ranger vermelha" class="imagem-ranger">
+<section class="container container-fluid min-vh-100 d-flex flex-column flex-lg-row p-0">
+  <!-- Imagem lateral (esconde em telas menores) -->
+  <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center  imagem">
+    <img src="assets/ranger.png" alt="Imagem de uma Ranger vermelha" class="img-fluid  p-4" />
+  </div>
+
+  <!-- Área de login -->
+  <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-light rounded">
+    <div class="text-center mb-4">
+      <img src="assets/ford-logo.svg" alt="Logo da Ford" class="img-fluid" style="max-width: 150px;" />
     </div>
-    <div class="login-class col-md-6 d-flex flex-column justify-content-center align-items-center">
-        <div class="logo text-center">
-            <img src="assets/ford-logo.svg" alt="logo da Ford" class="logo-ford ">
+
+    <div class="w-100" style="max-width: 400px;">
+      <h2 class="text-primary fw-bold text-center mb-3">Bem-vindo!</h2>
+      <p class="text-muted text-center mb-4">Para acessar o sistema, informe seu usuário e senha.</p>
+
+      <form #frmLogin="ngForm" (ngSubmit)="login()">
+        <!-- Usuário -->
+        <mat-form-field appearance="fill" class="w-100 mb-3">
+          <input
+            matInput
+            type="text"
+            placeholder="Digite seu usuário"
+            [(ngModel)]="usuario"
+            name="usuario"
+            required
+            class="input input-usuario"
+          />
+        </mat-form-field>
+
+        <!-- Senha -->
+        <mat-form-field appearance="fill" class="w-100 mb-3">
+          <input
+            matInput
+            [type]="hide() ? 'password' : 'text'"
+            placeholder="Digite sua senha"
+            [(ngModel)]="senha"
+            name="senha"
+            required
+            class="input input-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Mostrar ou ocultar senha'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <!-- Toggle -->
+        <div class="form-check form-switch mb-3 d-flex justify-content-between align-items-center">
+          <label class="form-check-label text-muted">Logar automaticamente</label>
+          <mat-slide-toggle></mat-slide-toggle>
         </div>
-        <div class="container-password">
-                <h2 class=" fw-bold">Bem Vindo!</h2>
-              <form #frmLogin="ngForm" class="form-login w-100" (ngSubmit)="login()"  style="max-width: 400px;">
-  <p class="texto-login">Para acessar o sistema, por favor, informe seu usuário e senha.</p>
 
-  <mat-form-field appearance="fill" class="form-field w-100 mb-3">
+        <!-- Mensagem de erro -->
+        <div *ngIf="loginError()" class="text-danger fw-bold text-center mb-3">
+          *Falha no login: Nome de usuário ou senha incorretos.
+        </div>
 
-    <input
-      class="input input-usuario "
-      matInput 
-      type="text"
-      placeholder="Digite seu usuário"
-      [(ngModel)]="usuario"
-      name="usuario"
-      required
-    />
-  </mat-form-field>
-
-  <mat-form-field  appearance="fill" class="w-100 mb-3" class="form-field">
-
-    <input
-    class="input input-password"
-      matInput
-      [type]="hide() ? 'password' : 'text'"
-      placeholder="Digite sua senha"
-      [(ngModel)]="senha"
-      name="senha"
-      required
-    />
-    <button
-      mat-icon-button
-      matSuffix
-      type="button"
-      (click)="clickEvent($event)"
-      [attr.aria-label]="'Mostrar ou ocultar senha'"
-      [attr.aria-pressed]="hide()"
-    >
-      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
-    </button>
-  </mat-form-field>
-
-  <div class="remember-me d-flex justify-content-between align-items-center mb-3">
-    <label class="form-label text-muted mb-0">Logar automaticamente</label>
-    <p><mat-slide-toggle></mat-slide-toggle></p>
-  </div>
-
-  <div *ngIf="loginError()" class="erro text-danger mb-3 fw-bold text-center">
-    *Falha no login: Nome de usuário ou senha incorretos.
-  </div>
-
-  <button
-    class="btn-enviar-form btn btn-primary w-100"
-    type="submit"
-    [disabled]="!frmLogin.valid"
-  >
-    Enviar
-  </button>
-</form>
-          <p class="erro"></p>
+        <!-- Botão -->
+        <button
+          class="btn btn-primary w-100"
+          type="submit"
+          [disabled]="!frmLogin.valid"
+        >
+          Enviar
+        </button>
+      </form>
     </div>
-    <p class="texto-de-um-footer text-muted mt-4 text-center small">© 2025 Ford Motor Company. Todos os direitos reservados.</p>
-</div>
+
+    <!-- Rodapé -->
+    <p class="text-muted text-center mt-4 small">© 2025 Ford Motor Company. Todos os direitos reservados.</p>
+  </div>
 </section>

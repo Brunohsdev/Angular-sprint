@@ -62,7 +62,7 @@ export class Dashboard implements OnInit {
           console.log("dados vin", data)
         },
         error: (err)=>{
-          console.log('Erro ao buscar Vin:', )
+          console.log('Erro ao buscar Vin:', err.message);
         }
       })
     };

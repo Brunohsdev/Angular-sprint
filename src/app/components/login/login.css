@@ -1,216 +1,53 @@
-@import url("../../../styles.css");
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    justify-items: center;
-    min-height: 100vh;
-    width: 100%;
-    min-width: 100vw;
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0.5rem 2rem;
-    background-color: var(--cor-branca);
-    flex-direction: row;
-    gap: 1rem;
+/* Imagem de fundo ocupa toda a altura disponível */
+.container{background-color: var(--cor-branca);
 }
-.imagem{
-    width: 50%;
-    box-sizing: border-box;
-
+img.img-fluid {
+  max-height: 90%;
+  object-fit: contain;
 }
-.login{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center
-
-}
-.imagem-ranger{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 2rem;
-}
-.login-class{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    justify-content: center;
-    width: 50%;
-    flex: 1;
-    height: 100%;
-    border-radius: 2rem;
-    background-color: var(--cor-cinza);
-}
-
-.logo-ford{
-    width: 150px;
-    object-fit: cover;
-    border-radius: 2rem;
-}
-.container-password{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    gap: 1rem;
-}
-.container-password h2{
-    color: var(--cor-azul-principal);
-    font-size: 31px;
-    font-weight: 700;
-    padding: 0;
-}
-.texto-login{
-    color: var(--cinza-escuro);
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-.form-field{
-    width: 100%;
-    max-width: 45rem;
-    border-radius: 50rem;
-    box-sizing: border-box;
-
-}
-
 .input{
- background-repeat: no-repeat;
-    align-items: center;
-    justify-items: flex-start;
-    padding-left: 2rem;
-}
-.input-usuario{
-    background-image: url("/assets/person.svg");
-
-}
-.input-password{
-    background-image: url("/assets/lock.svg");
-}
-.remember-me{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: flex-end;
-    max-width: 45rem;
-    width: 100%;
-    flex-direction: row;
-}
-.remember-me label{
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--cinza-escuro);
-    width: 50%;
-}
-.btn-enviar-form{
-    width: 100%;
-    max-width: 45rem;
-    background-color: var(--cor-azul-principal);
-    color: var(--cor-branca);
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.btn-enviar-form:disabled{
-    background-color: var(--cinza-escuro);
-    cursor: not-allowed;
-}
-.erro{
-    color: var(--vermelho-erro-ou-off);
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 1rem;
-}
-.texto-de-um-footer{
-    color: var(--cinza-escuro);
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-@media screen and (max-width: 991px) {
-  .imagem{
-    display: none;
-  }
-  .logo-ford {
-    width: 100px;
-    height: auto;
-  }
-  .login-class {
-    width: 100%;
-    border-radius: 16px;
-  }
-  .form-login {
-    width: 90%;
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 1rem;
-
-    border-radius: 16px;
-  }
-
-  .container-password h2 {
-    font-size: 1.6rem;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .texto-login {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .btn-enviar-form {
-    font-size: 1.1rem;
-    padding: 10px 16px;
-    background-color: #003399;
-    color: white;
-  }
-
-  .remember-me {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-
-  .remember-me label {
-    font-size: 0.95rem;
-  }
-
-  .texto-de-um-footer {
-    font-size: 0.8rem;
-    margin: 0;
-    color: #666;
-  }
-}
-
-/* Para corrigir estilos dos campos Angular Material */
+  background-repeat: no-repeat;
+     align-items: center;
+     justify-items: flex-start;
+     padding-left: 2rem;
+ }
+ .input-usuario{
+     background-image: url("/assets/person.svg");
+ 
+ }
+ .input-password{
+     background-image: url("/assets/lock.svg");
+ }
+/* Estiliza os campos Angular Material */
 ::ng-deep mat-form-field {
-
-  border-radius: 8px;
-  padding: 0 0.5rem;
+  width: 100%;
 }
 
 ::ng-deep .mat-form-field-flex {
-  border-radius: 6px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
 ::ng-deep .mat-input-element {
   padding: 10px;
+  font-size: 1rem;
+}
+
+/* Responsivo para tablets e celulares */
+@media (max-width: 991px) {
+  section.container-fluid {
+    flex-direction: column;
+  }
+
+  .text-muted {
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+  }
 }

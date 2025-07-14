@@ -1,7 +1,7 @@
 <body>
   <app-header></app-header>
   <main class="principal ">
-    <div class="container">
+    <section class="container container-fluid">
       <h1 class="text-primary fw-bold mb-4 text-center">Dashboard FORD</h1>
 
       <div class="row justify-content-center">
@@ -60,54 +60,51 @@
         <img class="car-img" *ngIf="selectVehicle" [src]="selectVehicle.img" alt="Imagem do carro" />
       </div>
 
-      
-<!-- Tabela -->
-<div class="table-responsive">
-  <table class="table table-bordered table-striped align-middle">
-    <thead class="table-primary table-footer-blue  ">
-      <tr class="">
-        <th>Código - Vin</th>
-        <th>Odômetro</th>
-        <th>Nível de Combustível</th>
-        <th>Status</th>
-        <th>Lat.</th>
-        <th>Long.</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <!-- Input VIN -->
-        <td>
-          <form [formGroup]="selectCarForms">
-            <input
-              class="form-control"
-              type="text"
-              id="vin"
-              formControlName="vin"
-              placeholder="Digite o código VIN"
-              (keydown.enter)="buscarVin()"
-            />
-          </form>
-        </td>
+    </section>
+    <section class="container container-fluid">
+    <!-- Tabela -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped align-middle">
+        <thead class="table-primary table-footer-blue">
+          <tr class="">
+            <th>Código - Vin</th>
+            <th>Odômetro</th>
+            <th>Nível de Combustível</th>
+            <th>Status</th>
+            <th>Lat.</th>
+            <th>Long.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Input VIN -->
+            <td>
+              <form [formGroup]="selectCarForms">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="vin"
+                  formControlName="vin"
+                  placeholder="Digite o código VIN"
+                  (keydown.enter)="buscarVin()"
+                />
+              </form>
+            </td>
 
-        <!-- Dados se houver -->
-        <td *ngIf="vehicleData; else vazio">{{ vehicleData.odometro }} Km</td>
-        <td *ngIf="vehicleData; else vazio">{{ vehicleData.nivelCombustivel }} %</td>
-        <td *ngIf="vehicleData; else vazio">{{ vehicleData.status | titlecase }}</td>
-        <td *ngIf="vehicleData; else vazio">{{ vehicleData.lat }}</td>
-        <td *ngIf="vehicleData; else vazio">{{ vehicleData.long }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- Template de fallback para dados ausentes -->
-<ng-template #vazio>
-
-  
-</ng-template>
-
-
+            <!-- Dados se houver -->
+            <td *ngIf="vehicleData; else vazio">{{ vehicleData.odometro }} Km</td>
+            <td *ngIf="vehicleData; else vazio">{{ vehicleData.nivelCombustivel }} %</td>
+            <td *ngIf="vehicleData; else vazio">{{ vehicleData.status | titlecase }}</td>
+            <td *ngIf="vehicleData; else vazio">{{ vehicleData.lat }}</td>
+            <td *ngIf="vehicleData; else vazio">{{ vehicleData.long }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Template de fallback para dados ausentes -->
+      <ng-template #vazio>
+        <td>-</td>
+      </ng-template>
     </div>
+    </section>
   </main>
 </body>
