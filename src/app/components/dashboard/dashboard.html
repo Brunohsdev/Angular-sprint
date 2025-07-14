@@ -1,15 +1,16 @@
 <body>
   <app-header></app-header>
-  <main class="principal ">
-    <section class="container container-fluid">
+  <main class="principal py-4">
+    <section class="container">
       <h1 class="text-primary fw-bold mb-4 text-center">Dashboard FORD</h1>
 
-      <div class="row justify-content-center">
+      <!-- Cards -->
+      <div class="row g-3 justify-content-center">
         <!-- Select de veículo -->
-        <div class="col-12 col-md-3 mb-3">
-          <div class="card shadow-sm">
-            <div class="card-body card-1">
-              <h6 class="card-title fw-bold">Veículo</h6>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold">Veículo</h6>
               <form [formGroup]="selectCarForms">
                 <select formControlName="carId" class="form-select">
                   <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
@@ -21,33 +22,33 @@
           </div>
         </div>
 
-        <!-- Total de Vendas -->
-        <div class="col-12 col-md-3 mb-3">
-          <div class="card shadow-sm">
-            <div class="card-body card-1">
-              <h6 class="card-title fw-bold">Total de Vendas</h6>
+        <!-- Card de Vendas -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold">Total de Vendas</h6>
               <p class="text-primary fs-5 fw-bold m-0" *ngIf="selectVehicle">{{ selectVehicle.volumetotal }}</p>
               <p class="m-0">Unid.</p>
             </div>
           </div>
         </div>
 
-        <!-- Conectados -->
-        <div class="col-12 col-md-3 mb-3">
-          <div class="card shadow-sm">
-            <div class="card-body card-1">
-              <h6 class="card-title fw-bold">Conectados</h6>
+        <!-- Card de Conectados -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold">Conectados</h6>
               <p class="text-primary fs-5 fw-bold m-0" *ngIf="selectVehicle">{{ selectVehicle.connected }}</p>
               <p class="m-0">Unid.</p>
             </div>
           </div>
         </div>
 
-        <!-- Update Software -->
-        <div class="col-12 col-md-3 mb-3">
-          <div class="card shadow-sm">
-            <div class="card-body card-1">
-              <h6 class="card-title fw-bold">Update Software</h6>
+        <!-- Card de Update -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold">Update Software</h6>
               <p class="text-primary fs-5 fw-bold m-0" *ngIf="selectVehicle">{{ selectVehicle.softwareUpdates }}</p>
               <p class="m-0">Unid.</p>
             </div>
@@ -56,55 +57,55 @@
       </div>
 
       <!-- Imagem do carro -->
-      <div class="text-center my-4 container-car">
-        <img class="car-img" *ngIf="selectVehicle" [src]="selectVehicle.img" alt="Imagem do carro" />
+      <div class="text-center my-4">
+        <img class="car-img img-fluid" *ngIf="selectVehicle" [src]="selectVehicle.img" alt="Imagem do carro" />
       </div>
 
-    </section>
-    <section class="container container-fluid">
-    <!-- Tabela -->
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped align-middle">
-        <thead class="table-primary table-footer-blue">
-          <tr class="">
-            <th>Código - Vin</th>
-            <th>Odômetro</th>
-            <th>Nível de Combustível</th>
-            <th>Status</th>
-            <th>Lat.</th>
-            <th>Long.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <!-- Input VIN -->
-            <td>
-              <form [formGroup]="selectCarForms">
-                <input
-                  class="form-control"
-                  type="text"
-                  id="vin"
-                  formControlName="vin"
-                  placeholder="Digite o código VIN"
-                  (keydown.enter)="buscarVin()"
-                />
-              </form>
-            </td>
+      <!-- Tabela VIN -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+          <thead class="table-primary">
+            <tr>
+              <th>Código - Vin</th>
+              <th>Odômetro</th>
+              <th>Nível de Combustível</th>
+              <th>Status</th>
+              <th>Lat.</th>
+              <th>Long.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <!-- Campo VIN -->
+              <td class="w-25">
+                <form [formGroup]="selectCarForms">
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="vin"
+                    placeholder="Digite o código VIN"
+                    (keydown.enter)="buscarVin()"
+                  />
+                </form>
+              </td>
 
-            <!-- Dados se houver -->
-            <td *ngIf="vehicleData; else vazio">{{ vehicleData.odometro }} Km</td>
-            <td *ngIf="vehicleData; else vazio">{{ vehicleData.nivelCombustivel }} %</td>
-            <td *ngIf="vehicleData; else vazio">{{ vehicleData.status | titlecase }}</td>
-            <td *ngIf="vehicleData; else vazio">{{ vehicleData.lat }}</td>
-            <td *ngIf="vehicleData; else vazio">{{ vehicleData.long }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- Template de fallback para dados ausentes -->
-      <ng-template #vazio>
-        <td>-</td>
-      </ng-template>
-    </div>
+              <!-- Dados VIN -->
+              <ng-container *ngIf="vehicleData; else vazio">
+                <td>{{ vehicleData.odometro }} Km</td>
+                <td>{{ vehicleData.nivelCombustivel }} %</td>
+                <td>{{ vehicleData.status | titlecase }}</td>
+                <td>{{ vehicleData.lat }}</td>
+                <td>{{ vehicleData.long }}</td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+
+        <ng-template #vazio>
+          <td colspan="5" class="text-center text-muted">Digite um VIN válido para exibir os dados</td>
+        </ng-template>
+      </div>
     </section>
   </main>
+  <footer></footer>
 </body>

@@ -5,15 +5,21 @@ img.img-fluid {
   max-height: 90%;
   object-fit: contain;
 }
+.cor{
+  background-color: var(--cor-azul-principal);
+}
 .input{
   background-repeat: no-repeat;
      align-items: center;
      justify-items: flex-start;
      padding-left: 2rem;
  }
+ .container-form{
+  background-color: var(--cor-cinza);
+ }
  .input-usuario{
      background-image: url("/assets/person.svg");
- 
+
  }
  .input-password{
      background-image: url("/assets/lock.svg");
