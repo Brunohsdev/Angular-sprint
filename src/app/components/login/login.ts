@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { Usuario } from '../../models/usuario.model';
 
 @Component({
+  standalone: true,
   selector: 'app-login',
   templateUrl: 'login.html',
   styleUrl: 'login.css',
@@ -32,7 +33,7 @@ export class Login {
   loginError = signal(false);
 
   constructor(
-    private auth: AuthService, 
+    private auth: AuthService,
     private router: Router, ) {}
 
   clickEvent(event: MouseEvent) {

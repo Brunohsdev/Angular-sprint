@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router';
-import { Login } from './components/login/login';
 import { Home } from './components/home/home';
 import { Dashboard } from './components/dashboard/dashboard';
 import { Perfil } from './components/perfil/perfil';
@@ -8,7 +7,10 @@ import { Perfil } from './components/perfil/perfil';
 
 export const routes: Routes = [
    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    {path: 'login', component: Login},
+      {
+    path: 'login',
+    loadChildren: () => import('./components/login/login-module').then(m => m.LoginModule) // Carregamento preguiçoso do módulo de login
+  },
     {path: 'home', component: Home},
     {path: 'dashboard', component: Dashboard },
     {path: 'perfil', component: Perfil},

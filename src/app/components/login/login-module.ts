@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { Login } from './login'; // componente standalone
 
-
+const routes: Routes = [
+  { path: '', component: Login } // Rota local deste módulo
+];
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
+    RouterModule.forChild(routes),
+    Login, // IMPORTANDO o componente standalone direto aqui
   ]
 })
 export class LoginModule { }
